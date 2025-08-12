@@ -1,0 +1,13 @@
+<h5>Current user is {{ currentUser }}</h5>
+
+<mat-radio-group
+  [ngModel]="currentUser"
+  (ngModelChange)="updateCurrentUser($event)"
+  aria-label="Select an user"
+>
+  @for (possibleUser of possibleUsers; track possibleUser) {
+    <mat-radio-button [value]="possibleUser">{{
+      possibleUser
+    }}</mat-radio-button>
+  }
+</mat-radio-group>

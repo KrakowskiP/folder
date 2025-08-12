@@ -1,0 +1,38 @@
+<div>
+  <span>
+    @if (node.type === FileType.Folder) {
+      <ng-container>
+        <div class="center">
+          <span class="hover" (click)="toggle()">📂 {{ node.name }}</span>
+          <app-file-upload-button
+            (fileSelected)="addFileToFolder($event, node)"
+          ></app-file-upload-button>
+        </div>
+      </ng-container>
+    }
+    @if (node.type === FileType.File && hasUserPrivilige) {
+      <ng-container>
+        <div class="center">
+          <span class="hover" (click)="downloadFile(node)"
+            >📄 {{ node.name }}</span
+          >
+          @if (parent) {
+            <app-delete-file-button
+              (deleteClicked)="deleteFile(parent, node)"
+            ></app-delete-file-button>
+          }
+        </div>
+      </ng-container>
+    }
+  </span>
+</div>
+@if (node.children && isExpanded) {
+  <div class="right-shift">
+    @for (child of node.children; track child) {
+      <app-file-tree-recurency
+        [node]="child"
+        [parent]="node"
+      ></app-file-tree-recurency>
+    }
+  </div>
+}

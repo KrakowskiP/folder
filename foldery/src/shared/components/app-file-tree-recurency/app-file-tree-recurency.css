@@ -1,0 +1,16 @@
+.hover{
+  cursor: pointer;
+}
+
+.hover:hover {
+  background-color: #f0f0f0;
+}
+
+.center {
+  display: flex;
+  align-items: center
+}
+
+.right-shift {
+  margin-left: 20px;
+}

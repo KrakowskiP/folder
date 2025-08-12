@@ -1,0 +1,9 @@
+<input type="file" #fileInput (change)="onFileSelected($event)" />
+
+<button
+  mat-icon-button
+  (click)="fileInput.click()"
+  matTooltip="Add file to folder"
+>
+  <mat-icon>add</mat-icon>
+</button>
